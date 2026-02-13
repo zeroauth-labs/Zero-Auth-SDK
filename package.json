@@ -1,0 +1,23 @@
+{
+    "name": "zero-auth-sdk",
+    "version": "0.1.0",
+    "description": "Frontend SDK for Zero Auth integration",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch"
+    },
+    "keywords": [
+        "zeroauth",
+        "zk",
+        "did",
+        "sdk"
+    ],
+    "author": "Zero Auth Labs",
+    "license": "MIT",
+    "devDependencies": {
+        "typescript": "^5.2.2",
+        "@types/node": "^20.8.2"
+    }
+}
