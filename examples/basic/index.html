@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Auth SDK Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: #1a1b26;
+            color: #a9b1d6;
+        }
+
+        .card {
+            background: #16161e;
+            border: 1px solid #24283b;
+        }
+
+        .primary {
+            color: #7aa2f7;
+        }
+
+        .btn-primary {
+            background: #7aa2f7;
+            color: #1a1b26;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+    <div id="app" class="card p-8 rounded-3xl w-full max-w-md shadow-2xl">
+        <h1 class="text-3xl font-bold mb-2 text-white">Zero Auth Demo</h1>
+        <p class="text-gray-400 mb-8">Test the end-to-end ZK verification flow.</p>
+
+        <div id="setup-view">
+            <button id="verify-btn"
+                class="w-full btn-primary py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
+                Verify Age (18+)
+            </button>
+        </div>
+
+        <div id="qr-view" class="hidden flex flex-col items-center">
+            <p class="mb-4 text-sm font-bold uppercase tracking-widest primary">Scan with Wallet</p>
+            <div id="qr-container" class="bg-white p-4 rounded-2xl mb-6">
+                <!-- QR Code will be injected here -->
+                <canvas id="qr-canvas"></canvas>
+            </div>
+            <p class="text-xs text-gray-500 animate-pulse">Waiting for proof submission...</p>
+        </div>
+
+        <div id="success-view" class="hidden flex flex-col items-center">
+            <div
+                class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-4 border border-green-500/30">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-2">Verified!</h2>
+            <p class="text-gray-400 text-center mb-6">Your ZK Proof has been verified by the service.</p>
+            <pre id="proof-log"
+                class="text-[10px] bg-black/50 p-4 rounded-lg w-full overflow-auto max-h-48 font-mono text-green-400"></pre>
+            <button onclick="location.reload()" class="mt-6 text-sm primary hover:underline">Try Again</button>
+        </div>
+    </div>
+
+    <script type="module" src="./src/main.ts"></script>
+</body>
+
+</html>
